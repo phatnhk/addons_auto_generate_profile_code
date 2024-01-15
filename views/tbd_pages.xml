@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_tbd_page_form" model="ir.ui.view">
+        <field name="name">crm.tbd_page_generate_profile_code.form</field>
+        <field name="model">crm.lead</field>
+        <field name="arch" type="xml">
+            <form string="Admission Sync">
+                <div>
+                    Bạn đã chọn <field name="selected_count" widget="statinfo"/> hồ sơ. Nhấn tiếp tục để cập nhật mã hồ sơ.
+                </div>
+                <footer>
+                    <button string="Tiếp tục" name="action_generate_profile_code" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="Hủy" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_tbd_page_form" model="ir.actions.act_window">
+        <field name="name">Cập nhật mã hồ sơ</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_tbd_page_form"/>
+        <field name="target">new</field>
+        <field name="context">{}</field>
+        <field name="binding_model_id" ref="model_crm_lead"/>
+        <field name="binding_view_types">list</field>
+    </record>
+</odoo>
